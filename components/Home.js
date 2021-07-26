@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet,Text, View, TouchableOpacity } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { StyleSheet,Text, View, TouchableOpacity, FlatList } from 'react-native';
 import 'react-native-gesture-handler';
 import Header from './Header';
 
@@ -9,9 +10,13 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      location_name: '',
+      location: '',
     }
   }
+
+  componentDidMount(){
+    this.getLocation()
+}
 
 
   getLocation = async () => {
@@ -22,9 +27,30 @@ class Home extends Component {
         'X-Authorization': token
       }
     })
+
+  .then((response) => {
+    if(response.status === 200){
+      return response.json()
+    } else if(response.status === 400){
+      throw 'bad request';
+    }
+    else if(response.status === 401){
+    throw 'unautharised';
+  }  else if(response.status === 500){
+    throw 'server error';
   }
+  })
 
-
+  .then((responseJson) => {
+    this.setState({
+      location: responseJson
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+    ToastAndroid.show(error, ToastAndroid.SHORT);
+  })
+}
 
   render(){
 
@@ -36,6 +62,17 @@ class Home extends Component {
       <TouchableOpacity onPress={() => navigation.navigate('Account')} >
         <Text style={styles.Button}>My Account</Text>
       </TouchableOpacity>
+
+      <FlatList
+      data={this.state.location}
+      renderItem={({item}) => (
+     <TouchableOpacity>
+     <Text style={styles.shopsNames}>{item.location_name}</Text>
+     </TouchableOpacity>
+      )}
+     keyExtractor={(item) => item.location_id.toString()}
+      />
+
       </View>
     )
   };
@@ -54,7 +91,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textDecorationLine: 'underline'
 
+  },
+
+  shopsNames: {
+    fontSize: 24,
+    padding: 5,
+    marginLeft: 30
   }
+  
 
 });
    

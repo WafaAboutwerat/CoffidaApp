@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet , ToastAndroid ,TouchableOpacity,View,Text} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { StyleSheet,View,Text} from 'react-native';
 import 'react-native-gesture-handler';
 
 
