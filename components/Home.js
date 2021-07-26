@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet,Text, View, TouchableOpacity } from 'react-native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 import 'react-native-gesture-handler';
 import Header from './Header';
 
-const Drawer = createDrawerNavigator();
 class Home extends Component {
 
   
@@ -15,7 +13,9 @@ class Home extends Component {
       <View style={styles.container}>  
       <Header />
       <Text>hello</Text>
-
+      <TouchableOpacity onPress={() => navigation.navigate('Account')} >
+        <Text style={styles.Button}>My Account</Text>
+      </TouchableOpacity>
       </View>
     )
   };
