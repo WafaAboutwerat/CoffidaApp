@@ -11,6 +11,7 @@ class Home extends Component {
 
     this.state = {
       location: '',
+      locationID: null
     }
   }
 
@@ -66,12 +67,14 @@ class Home extends Component {
       <FlatList
       data={this.state.location}
       renderItem={({item}) => (
-     <TouchableOpacity>
+     <TouchableOpacity onPress={() => navigation.navigate('shopinfo', {locationID: item.location_id})}>
      <Text style={styles.shopsNames}>{item.location_name}</Text>
      </TouchableOpacity>
       )}
+      
      keyExtractor={(item) => item.location_id.toString()}
       />
+
 
       </View>
     )

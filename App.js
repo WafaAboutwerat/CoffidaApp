@@ -9,6 +9,7 @@ import SignUp from './components/SignUp';
 import login from './components/login';
 import Home from './components/Home';
 import Account from './components/Account';
+import shopinfo from './components/shopinfo';
 
 const Stack = createStackNavigator()
 
@@ -21,6 +22,7 @@ class App extends Component {
       <Stack.Screen name="login" component={login} />
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Account" component={Account} />
+      <Stack.Screen name="shopinfo" component={shopinfo} />
       </Stack.Navigator>
     </NavigationContainer>
     )
