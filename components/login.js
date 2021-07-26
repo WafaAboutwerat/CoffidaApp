@@ -47,9 +47,7 @@ class login extends Component {
       
     })
     }
- 
- 
- 
+
     render(){
     return (
 
@@ -58,11 +56,11 @@ class login extends Component {
 
      
      <TextInput style={styles.textinput}placeholder="Email..." onChangeText={(email) => this.setState({email})} value={this.state.email} />
-      <TextInput style={styles.textinput}placeholder="Password..."secureTextEntry={true} onChangeText={(password) => this.setState({password})} value={this.state.password}/>
+     <TextInput style={styles.textinput}placeholder="Password..."secureTextEntry={true} onChangeText={(password) => this.setState({password})} value={this.state.password}/>
 
       <TouchableOpacity style={styles.button} onPress={() => this.login()}>
           <Text style={styles.btntext}>login</Text>
-          </TouchableOpacity>
+      </TouchableOpacity>
 
 
       </View>

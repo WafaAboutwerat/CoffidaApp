@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput,TouchableOpacity, Alert } from 'react-native';
 import 'react-native-gesture-handler';
 
+
 class SignUp extends Component {
 
   constructor(props) {
@@ -46,7 +47,6 @@ class SignUp extends Component {
   })
 
   
-  
   .catch((error) => {
     console.log(error);
   })
@@ -61,14 +61,14 @@ class SignUp extends Component {
       <View style={styles.signup}>
       <Text style={styles.header}>SignUp</Text>
 
-      <TextInput style={styles.textinput} placeholder='FirstName...' onChangeText={(firstName) => this.setState({firstName})} value={this.state.firstName}/>
+     <TextInput style={styles.textinput} placeholder='FirstName...' onChangeText={(firstName) => this.setState({firstName})} value={this.state.firstName}/>
      <TextInput style={styles.textinput} placeholder='LastName...' onChangeText={(lastName) => this.setState({lastName})} value={this.state.lastName}/>
      <TextInput style={styles.textinput} placeholder='Email...' onChangeText={(Email) => this.setState({Email})} value={this.state.Email}/>
-      <TextInput style={styles.textinput} placeholder='Password...' secureTextEntry={true} onChangeText={(Password) => this.setState({Password})} value={this.state.Password}/>
+     <TextInput style={styles.textinput} placeholder='Password...' secureTextEntry={true} onChangeText={(Password) => this.setState({Password})} value={this.state.Password}/>
 
       <TouchableOpacity style={styles.button} onPress={() => this.signUp()}>
           <Text style={styles.btntext}>SignUp</Text>
-          </TouchableOpacity>
+      </TouchableOpacity>
 
       
           <TouchableOpacity style={styles.button} onPress ={() => navigation.navigate('login')}>
