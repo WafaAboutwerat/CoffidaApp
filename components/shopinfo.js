@@ -63,6 +63,7 @@ class shopinfo extends Component {
 
 
   render(){
+    const navigation = this.props.navigation;
     return (
       <View style={styles.container}>
           
@@ -74,7 +75,11 @@ class shopinfo extends Component {
         <Text style={styles.info}>quality rating: {this.state.avg_quality_rating}</Text>
         <Text style={styles.info}>cleanliness: {this.state.avg_clenliness_rating}</Text>
 
-    <TouchableOpacity onPress={() => navigation.navigate('addreview', {locationID: item.location_id})}>
+     <TouchableOpacity onPress={() => navigation.navigate('showreviews', {locationID: this.state.location_id})}>
+     <Text style={styles.addreview}>show reviews</Text>
+     </TouchableOpacity>    
+
+     <TouchableOpacity onPress={() => navigation.navigate('addreview', {locationID: this.state.location_id})}>
      <Text style={styles.addreview}>add review</Text>
      </TouchableOpacity>
 

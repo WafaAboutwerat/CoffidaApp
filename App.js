@@ -10,6 +10,10 @@ import login from './components/login';
 import Home from './components/Home';
 import Account from './components/Account';
 import shopinfo from './components/shopinfo';
+import showreviews from './components/showreviews';
+import addreview from './components/addreview';
+
+
 
 const Stack = createStackNavigator()
 
@@ -23,6 +27,8 @@ class App extends Component {
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Account" component={Account} />
       <Stack.Screen name="shopinfo" component={shopinfo} />
+      <Stack.Screen name="showreviews" component={showreviews} />
+      <Stack.Screen name="addreview" component={addreview} />
       </Stack.Navigator>
     </NavigationContainer>
     )
